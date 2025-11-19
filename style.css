@@ -86,22 +86,3 @@ body {
     z-index: 10;
 }
 
-/* Digital Display Styling */
-.digital-display {
-    position: relative; /* Sits on top of the analog clock */
-    z-index: 5;
-    text-align: center;
-    color: #333;
-}
-
-.digital-time {
-    font-size: 1.5rem; /* Adjust size */
-    font-weight: 500;
-}
-
-.digital-day {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #666;
-    margin-top: 4px;
-}
