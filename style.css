@@ -1,0 +1,107 @@
+/* General Setup */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.clock-container {
+    position: relative;
+    width: 200px; /* Adjust size of the entire widget here */
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Analog Clock Styling */
+.analog-clock {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.tick {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    transform-origin: center center;
+}
+
+.tick::before {
+    content: '';
+    position: absolute;
+    top: 5px; /* Distance of ticks from edge */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 8px; /* Length of ticks */
+    background-color: #555; /* Color of ticks */
+}
+
+/* Clock Hands */
+.hand {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: bottom center;
+    background-color: #333;
+    border-radius: 2px;
+}
+
+.hour-hand {
+    width: 4px; /* Thickness */
+    height: 40px; /* Length */
+    background-color: #444;
+}
+
+.minute-hand {
+    width: 3px;
+    height: 60px;
+    background-color: #444;
+}
+
+.second-hand {
+    width: 1px;
+    height: 70px;
+    background-color: #666;
+}
+
+.pivot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: #333;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+/* Digital Display Styling */
+.digital-display {
+    position: relative; /* Sits on top of the analog clock */
+    z-index: 5;
+    text-align: center;
+    color: #333;
+}
+
+.digital-time {
+    font-size: 1.5rem; /* Adjust size */
+    font-weight: 500;
+}
+
+.digital-day {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #666;
+    margin-top: 4px;
+}
