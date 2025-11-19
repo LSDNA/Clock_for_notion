@@ -38,12 +38,12 @@ body {
 .tick::before {
     content: '';
     position: absolute;
-    top: 5px; /* Distance of ticks from edge */
+    top: 5px;
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
-    height: 8px; /* Length of ticks */
-    background-color: #555; /* Color of ticks */
+    height: 8px;
+    background-color: #555;
 }
 
 /* Clock Hands */
@@ -56,23 +56,9 @@ body {
     border-radius: 2px;
 }
 
-.hour-hand {
-    width: 4px; /* Thickness */
-    height: 40px; /* Length */
-    background-color: #444;
-}
-
-.minute-hand {
-    width: 3px;
-    height: 60px;
-    background-color: #444;
-}
-
-.second-hand {
-    width: 1px;
-    height: 70px;
-    background-color: #666;
-}
+.hour-hand { width: 4px; height: 40px; background-color: #444; }
+.minute-hand { width: 3px; height: 60px; background-color: #444; }
+.second-hand { width: 1px; height: 70px; background-color: #666; }
 
 .pivot {
     position: absolute;
@@ -86,3 +72,17 @@ body {
     z-index: 10;
 }
 
+/* Day Display Styling */
+.digital-display {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+}
+
+.digital-day {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #666;
+    /* This empty space correctly centers the day text */
+    padding-top: 2rem; 
+}
