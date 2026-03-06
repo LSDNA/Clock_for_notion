@@ -1,22 +1,27 @@
 /* General Setup */
-body {
+html, body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: transparent;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /* WICHTIG: Erlaubt volle Transparenz */
+    background-color: transparent !important;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    overflow: hidden; /* Verhindert Scrollbalken */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     box-sizing: border-box;
 }
 
 .clock-container {
     position: relative;
-    width: 200px; /* Adjust size of the entire widget here */
+    width: 200px; /* Hier kannst du die Größe der Uhr anpassen */
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent !important;
 }
 
 /* Analog Clock Styling */
@@ -24,8 +29,10 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
+    background-color: transparent;
 }
 
+/* Die Striche am Rand (Ticks) */
 .tick {
     position: absolute;
     top: 0;
@@ -43,36 +50,56 @@ body {
     transform: translateX(-50%);
     width: 2px;
     height: 8px;
-    background-color: #555;
+    /* Ein helleres Grau für die Striche (sichtbar auf weiß & schwarz) */
+    background-color: #888; 
+    border-radius: 2px;
 }
 
-/* Clock Hands */
+/* Clock Hands (Zeiger) */
 .hand {
     position: absolute;
     left: 50%;
     bottom: 50%;
     transform-origin: bottom center;
-    background-color: #333;
-    border-radius: 2px;
+    /* Mittleres Grau für beste Sichtbarkeit in beiden Modi */
+    background-color: #666; 
+    border-radius: 4px;
+    transition: transform 0.05s cubic-bezier(0.1, 2.7, 0.58, 1);
 }
 
-.hour-hand { width: 4px; height: 40px; background-color: #444; }
-.minute-hand { width: 3px; height: 60px; background-color: #444; }
-.second-hand { width: 1px; height: 70px; background-color: #666; }
+.hour-hand { 
+    width: 4px; 
+    height: 45px; 
+    background-color: #555; /* Etwas dunkler für Fokus */
+}
 
+.minute-hand { 
+    width: 3px; 
+    height: 65px; 
+    background-color: #777; 
+}
+
+.second-hand { 
+    width: 2px; 
+    height: 75px; 
+    background-color: #999; /* Heller für den flüssigen Sekundenzeiger */
+}
+
+/* Der mittlere Punkt */
 .pivot {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 8px;
-    height: 8px;
-    background-color: #333;
+    width: 10px;
+    height: 10px;
+    background-color: #666;
     border-radius: 50%;
     z-index: 10;
+    border: 2px solid transparent; 
 }
 
-/* Day Display Styling */
+/* Day Display Styling (Text unter der Mitte) */
 .digital-display {
     position: relative;
     z-index: 5;
@@ -80,9 +107,11 @@ body {
 }
 
 .digital-day {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #666;
-    /* This empty space correctly centers the day text */
-    padding-top: 5rem; 
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* Dieses Grau ist auf fast jedem Hintergrund lesbar */
+    color: #888; 
+    padding-top: 5.5rem; 
 }
